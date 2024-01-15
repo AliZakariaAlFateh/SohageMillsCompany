@@ -1,0 +1,340 @@
+﻿<style>
+    .reverseForA {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    .reverseForB {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+
+
+    .ForDateAndTime .dropdown-menu {
+        position: absolute;
+        z-index: 2000;
+        display: none;
+        min-width: 14rem;
+        padding: 0.5rem 0;
+        margin: 0;
+        font-size: 1rem;
+        color: #9B9B9B;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 8px;
+        transition: display 1s;
+    }
+
+
+
+
+    .dropdown:hover > .dropdown-menu {
+        transition: display 2s;
+        display: block;
+       
+    }
+
+    .dropdown > .dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0.255em;
+        vertical-align: 0.255em;
+        content:none !important;
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+
+    }
+</style>
+
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark p-0 ToAnySection">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small> شركة مطاحن مصر العليا</small>
+            </div>
+
+
+
+            <div class="h-100 d-inline-flex align-items-center">
+                
+
+
+@*                 <div class="dropdown ForDateAndTime">
+                    <button class="btn btn-primary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false">
+                        <small class="far fa-clock text-primary me-2"></small>
+                        <span class="CurrentDay"> </span>
+                        <small class="" style="direction: ltr;"> <span id="_Time"> </span> &nbsp;&nbsp;</small>&nbsp;
+                        <span id="_Status"></span> &nbsp;
+                        
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" id="Datelady"></a></li>
+                    </ul>
+                </div> *@
+
+
+
+
+                <div class="nav-item dropdown" style="z-index:3000">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                        <small class="far fa-clock text-primary me-2"></small>
+                        <span class="CurrentDay"> </span>
+                        <small class="" style="direction: ltr;"> <span id="_Time"> </span> &nbsp;&nbsp;</small>&nbsp;
+                        <span id="_Status"></span> &nbsp;
+
+
+                    </a>
+                    <div class="dropdown-menu bg-light m-0 text-center">
+
+                          <a class="dropdown-item" id="Datelady"></a>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>+012 8787 1566</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center mx-n2">
+                <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0  reverseForB">
+    <div class="" style="background-color:#b9c2b9">
+        <a asp-action="Index" asp-controller="Home" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5 ">
+            <h2 class="m-0 text-primary">شركة مطاحن مصر العليا</h2>
+        </a>
+    </div>
+
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+
+            <!--      Contact Us -->
+@*             <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">للتواصل معنا </a>
+                <div class="dropdown-menu bg-light m-0 text-center">
+                    <a href="#" class="dropdown-item">للتواصل معنا</a>
+                    <a href="#" class="dropdown-item">مواقع إرشادية</a>
+
+                </div>
+            </div> *@
+
+
+            @* <a href="#" class="nav-item nav-link"> مناقصات و مزايدات</a> *@
+
+            <!--      News -->
+            <!--     Curency and Works-->
+@*             <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">الاخبار </a>
+                <div class="dropdown-menu bg-light m-0 text-center">
+                    <a href="#" class="dropdown-item">أخبار عامة</a>
+                </div>
+            </div> *@
+
+
+            <!--     Curency and Works-->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> البيانات المالية</a>
+                <div class="dropdown-menu bg-light m-0 text-center">
+               @*      <a href="#" class="dropdown-item">تاريخ القيد بالبورصة</a> *@
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="0" class="dropdown-item">الموازنة التقديرية </a>
+                 @*    <a href="#" class="dropdown-item">اجتماع مجلس الادارة </a>
+                    <a href="#" class="dropdown-item">قرار الجمعية العامة</a>
+                    <a href="#" class="dropdown-item">القوائم المالية </a> *@
+                    <input type="hidden" id="hwkamId" name="hwkamId" />
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="1" class="dropdown-item"> حوكمة الشركة </a>
+                    <input type="hidden" id="hwkamId" name="hwkamId" />
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="2" class="dropdown-item"> هيكل المساهمين </a>
+                    <input type="hidden" id="hwkamId" name="hwkamId" />
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="3" class="dropdown-item">  الفرص الاستثمارية </a>
+                    <input type="hidden" id="hwkamId" name="hwkamId" />
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="4" class="dropdown-item"> المؤشـرات الماليـة والاقتصـاديـة  </a>
+
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="5" class="dropdown-item">  مؤاشرات انتاجية </a>
+                    <a asp-action="GetAllFiles_Base_type" asp-controller="UploadFile" asp-route-type_pdf="6" class="dropdown-item">عملاء الشركة</a>
+                    <a href="/home/Indicators_Details" class="dropdown-item"> المؤشـرات الماليـة والاقتصـاديـة للشركـة </a>
+                    <a href="/home/Indicators_Details" class="dropdown-item">   القوائم الماليـة  للشركـة </a>
+
+
+                </div>
+            </div>
+
+
+            <!--     Activites and Works-->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">المنتجات و الانشطة</a>
+                <div class="dropdown-menu bg-light m-0 text-center">
+@*                     <a href="#" class="dropdown-item">نشاط الطحن</a>
+                    <a href="#" class="dropdown-item">نشاط المكرونة </a>
+                    <a href="#" class="dropdown-item">نشاط الخبز </a>
+                    <a href="#" class="dropdown-item">نشاط التحزين و النقل</a>
+                    <a href="#" class="dropdown-item">نشاط التصدير و المعارض </a>
+                    <a href="#" class="dropdown-item">نشاط الاستثار العقارى   </a> *@
+                </div>
+            </div>
+
+
+
+            <!-- About Company -->
+            <div class="nav-item dropdown ">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">عن الشركة</a>
+                <div class="dropdown-menu bg-light m-0 text-center" id="MoveSections">
+                    <a href="#" class="dropdown-item" MoveTo_Section="Nobsaa">نبذة عن الشركة </a>
+                    <a asp-action="IndexFiles" asp-controller="UploadFile" class="dropdown-item" MoveTo_Section="Nobsaa">الملفات</a>
+                    
+                   @*  <a href="#" class="dropdown-item" MoveTo_Section="oldmemebers">  أعضاء مجلس الادارة السابقين</a> *@
+                    @* <a href="#" class="dropdown-item">أهداف الشركة </a> *@
+                    <a asp-action="IndexTeam" asp-controller="CompanyTeam" class="dropdown-item">  مجلس الادارة </a>
+                   
+                    @* <a href="#" class="dropdown-item">الهيكل التنظيمى </a> *@
+                    <a asp-action="GetAll_Sectors_With_Region_phones" asp-controller="Sector" class="dropdown-item">    القطاعات المنتجية للشركة  </a>
+@*                     <a href="#" class="dropdown-item"> سياسة الجودة </a>
+                    <a href="#" class="dropdown-item"> المسؤلية المجتمعية </a>
+                    <a href="#" class="dropdown-item">نبذة عن رئيس مجلس الادارة</a> *@
+                    
+                    <a href="#" class="dropdown-item" MoveTo_Section="IsoCertificate">شهادة الايزو</a>
+@*                     <a href="#" class="dropdown-item"> منافذ البيع </a>
+                    <a href="#" class="dropdown-item">  الورش المركزية </a> *@
+                    <a asp-action="IndexPlanDetailsTableIndex" asp-controller="FuturePlan" class="dropdown-item">  الخطط المستقبلية  </a>
+
+                </div>
+            </div>
+            <a asp-action="Index" asp-controller="Home" class="nav-item nav-link active">الرئيسية</a>
+        </div>
+@*         <div class="reverseForA">
+
+            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>
+        </div> *@
+    </div>
+</nav>
+
+<!-- Navbar End -->
+
+
+
+<script src="~/js/jquery-3.5.1.min.js"></script>
+
+<script>
+
+
+
+
+
+    const TimeState = ["صباحا", "مساءاً"]
+    $(function () {
+
+
+        var date = new Date(Date.now());
+
+        // Format the date in Arabic
+
+        var options_En = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        var formattedDateMiladdy = date.toLocaleDateString('ar-EG', options_En);
+        $("#Datelady").append(formattedDateMiladdy)
+
+        console.log(Date.now())
+
+
+
+
+
+
+
+        function updateTime() {
+            const currentDate2 = new Date();
+            let TimeStatussss
+            const currentTime1 = currentDate2.toLocaleTimeString().split(" ")[0];
+            const arrtimeStatusRel = currentDate2.toLocaleTimeString().split(" ")[1]
+            if (arrtimeStatusRel == 'AM')
+                TimeStatussss = TimeState[0]
+            else
+                TimeStatussss = TimeState[1]
+            $("#_Time").empty();
+            $("#_Time").append(`   ${currentTime1}`)
+            $("#_Status").empty();
+            $("#_Status").append(`${TimeStatussss} `)
+            // console.log(currentTime2)
+        }
+
+        updateTime();
+
+        // Set up an interval to update the time every second
+        setInterval(updateTime, 1000);
+        // Get the current date and time
+        const currentDate = new Date();
+
+        // Get the day of the week (0 to 6, where 0 is Sunday)
+        const currentDayOfWeek = currentDate.getDay();
+
+        // Define an array of days
+        const daysOfWeek = ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+
+        // Get the name of the current day
+        const currentDayName = daysOfWeek[currentDayOfWeek];
+
+        // Get the current time
+
+
+        // Display the results
+        console.log(`Today is ${currentDayName} and the current time is`);
+
+        $(".CurrentDay").append(` ${currentDayName}   `)
+
+
+        $(".CurrentDay").hover(function () { 
+        
+        
+        
+
+
+        })
+    })
+
+
+
+</script>

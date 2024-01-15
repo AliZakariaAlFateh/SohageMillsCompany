@@ -1,0 +1,32 @@
+﻿@* @using Sohag__Mills_Company.ViewModels
+@model Sohag__Mills_Company.ViewModels.FuturePlanViewModel
+
+@{
+    ViewData["Title"] = "IndexPlanTableIndex";
+}
+
+
+<table>
+    <tr>
+        <th>FuturePlan Property</th>
+        <!-- Add headers for FuturePlanDetail properties as needed -->
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FuturePlan.Property1)</td>
+            <!-- Display other properties of FuturePlan -->
+
+            <!-- Iterate through FuturePlanDetails if needed -->
+            @foreach (var detail in item.FuturePlanDetails)
+            {
+                <td>@Html.DisplayFor(modelItem => detail.Property1)</td>
+                <!-- Display other properties of FuturePlanDetail -->
+            }
+        </tr>
+    }
+</table> *@
+@* <div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div> *@

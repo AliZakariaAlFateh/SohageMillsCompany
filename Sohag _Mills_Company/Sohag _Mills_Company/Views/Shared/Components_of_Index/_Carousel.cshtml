@@ -1,0 +1,62 @@
+﻿
+<link href="~/css/carousel_styles.css" rel="stylesheet" />
+
+
+
+
+
+  @* && ViewBag.Images.Count() != 0 *@
+<section class="container-fluid Carousel_Section e w-100 p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="owl-carousel header-carousel position-relative">
+
+        @if (ViewBag.Images != null && ((List<ImagesCarousel>)ViewBag.Images).Count > 0)
+        {
+            @foreach (var companyInfo in ViewBag.Images)
+            {
+                <div class="owl-carousel-item position-relative" data-dot="<img src='Images/@companyInfo.ImageName'>">
+                    <img class="img-fluid object-fit-fill" src="Images/@companyInfo.ImageName" alt="" min-width="600px" min-height="200px" style="width:100% !important;height:100% !important">
+                    <div class="owl-carousel-inner">
+                        <div class="container" style="height:100px !important">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown" style="color:#32C36C !important">@companyInfo.Name</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-3" style="color:#32C36C !important">@companyInfo.Description_Body</p>
+                                    <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">قراءة المزيد</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="owl-carousel-item position-relative" data-dot="<img src='~/img/suhage12.jpg'>">
+                <img class="img-fluid" src="~/img/suhage12.jpg" alt="" min-width="600px" min-height="200px" style="width:100% !important;height:25% !important">
+                <div class="owl-carousel-inner">
+                    <div class="container" style="height:100px !important">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-2 text-white animated slideInDown" style="color:#32C36C !important">شركة مطاحن مصر العليا</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-3" style="color:#32C36C !important">شركة سوهاج للمطاحن </p>
+                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">قراءة المزيد</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Carousel end -->
+<!-- يا يحيى الملف تم استدعاءه مرتين يا جدع دا  كلام هرام عليك-->
+
+<script src="~/js/companyteam/companyteamindex.js"></script>

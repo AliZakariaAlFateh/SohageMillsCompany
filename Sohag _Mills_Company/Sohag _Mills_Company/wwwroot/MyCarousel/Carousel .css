@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    
+}
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /*  min-height: 100vh; as be centers the items */
+    min-height: 100vh;
+    padding:0px 35px;
+    background: linear-gradient(to left top,#031a9a,#8b53ff);
+}
+
+.Mywrapper{
+    max-width: 1100px;
+    width: 100%;
+     /*  to move the i icons inside it as i want */
+    position: relative;
+}
+
+.Mywrapper i{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+     /*  line-height: 50px; as be centers the items */
+     line-height:50px;
+     border-radius: 50%;
+     font-size: 1.25rem;
+     cursor: pointer;
+     position: absolute;
+     top:50%;
+     transform: translateY(-50%);
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Mywrapper i:first-child{
+    left: -22px;
+}
+.Mywrapper i:last-child{
+    right: -22px;
+}
+
+.Mywrapper .Mycarousel{
+    display: grid;
+    /* here i divided the screen into columns   */
+    grid-auto-flow: column;
+    /* here i divided the screen into three columns   
+     in case of 3 : every column ( .MyCard) it's width is : 356.66 
+     in case of 4 : every column ( .MyCard) it's width is : 265
+    */
+    grid-auto-columns: calc(( 100% / 4 ) - 15px);
+    gap:16px;
+    /* overflow: hidden; */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+
+/*  To make the div img in the center of div .MyCard to show the mouve border */
+.Mycarousel :where(.MyCard, .img) {
+    display:flex;
+    align-items: center;
+    /* put the items in the center by x axis   */
+    justify-content: center;
+    /* put the items in the center by y axis   */
+
+}
+.Mycarousel::-webkit-scrollbar{
+    display: none;
+}
+.Mycarousel .MyCard{
+    height: 342px;
+    list-style: none;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor:pointer;
+    padding-bottom: 15px;
+    display:flex;
+    align-items: center;
+    /* put the items in the center by x axis   */
+    justify-content: center;
+    /* put the items in the center by y axis   */
+    flex-direction: column;
+
+}
+/* remove scroll smooth */
+.Mycarousel.no-transition{
+    scroll-behavior: auto;
+}
+
+/* remove scroll smooth when dragging  */
+.Mycarousel.dragging{
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+.Mycarousel.dragging .MyCard{
+    cursor: grab;
+    /* disable to select text on MyCard */
+    user-select: none;
+}
+
+.MyCard .img{
+    background-color: #8b53ff;
+    width:138px;
+    height:138px;
+    border-radius: 50%;
+}
+
+.MyCard .img img{
+    width:130px;
+    height:130px;
+    /*  object-fit: cover; as you make the image stretch in normal position with new width and height */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;;
+}
+.MyCard h2{
+    font-weight: 500;
+    font: size 1.6rem;
+    margin: 30px 0 5px;
+    text-align: center;
+}
+
+.MyCard span{
+    font-weight: 500;
+    font: size 1.6rem;
+    margin: 30px 0 5px;
+}
+
+
+@media(max-width:900px){
+    .Mywrapper .Mycarousel{
+        grid-auto-columns: calc(( 100% / 3 ) - 10px);
+
+    }
+}
+
+@media(max-width:768px){
+    .Mywrapper .Mycarousel{
+        grid-auto-columns: calc(( 100% / 2 ) - 8px);
+
+    }
+}
+
+@media(max-width:576px){
+    .Mywrapper .Mycarousel{
+        grid-auto-columns: 100%;
+
+    }
+}
+
+
+
+

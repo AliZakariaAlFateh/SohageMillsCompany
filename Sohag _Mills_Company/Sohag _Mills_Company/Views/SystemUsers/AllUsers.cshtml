@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_Dashbord_Layout";
+    ViewData["Title"] = "Dashboard Admin";
+}
+ @if (ViewBag.Users != null)
+{
+    int index = 0;
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+                @* <th>Role</th> *@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.Users)
+            {
+                index++;
+                <tr>
+                    <td>@index</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    @* <td>@user.Email</td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+
+} 
+

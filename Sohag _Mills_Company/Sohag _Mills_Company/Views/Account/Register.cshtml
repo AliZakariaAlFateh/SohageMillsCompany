@@ -1,0 +1,54 @@
+﻿@model UserRegister_AddVM
+@{
+    ViewData["Title"] = "Register";
+    // SelectList listRoles = new SelectList(ViewBag.Roles, "RoleName", "RoleName");
+}
+
+@* @if (User.IsInRole("Admin"))
+{ *@
+
+    <div class="modal-dialog modal-xl position-static d-block bg-body-secondary p-4 " tabindex="-1" role="dialog" id="modalSignin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-4 shadow" style="direction:rtl;">
+                <div class="modal-body p-5 pt-0">
+                    <form asp-action="Register">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword" class="control-label"></label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="RoleName" class="control-label"></label>
+                            <select class="form-control rounded-4 mt-3" asp-for="RoleName" asp-items="@ViewBag.Roles" value="Register "></select>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Register" class="btn btn-primary shadow-lg" style="margin-top: 20px;" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@* } *@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

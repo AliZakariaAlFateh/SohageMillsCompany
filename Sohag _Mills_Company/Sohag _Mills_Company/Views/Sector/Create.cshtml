@@ -1,0 +1,126 @@
+﻿@using Sohag__Mills_Company.ViewModels
+@model Sector
+<h1>اضافة قطاع</h1>
+@{
+    ViewData["Title"] = "اضافة قطاع";
+    Layout = "~/Views/Shared/_Dashbord_Layout.cshtml";
+}
+<div class="model modal-dialog modal-xl position-static d-block bg-body-secondary p-4 " tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                @*  <h1 class="fw-bold mb-0 fs-2">Create CreateTeam</h1> *@
+                <a class="btn-close" asp-action="IndexSectors" asp-controller="Sector"></a>
+            </div>
+            <div class="modal-body p-5 pt-0" style="direction: rtl;">
+
+
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    @if (Model != null)
+                    @* Model.sector.Id != null  || Model.sector.Id > 0) *@
+                    {
+
+                        <input type="hidden" asp-for="@Model.Id" value="@Model.Id" class="form-control" />
+                    }
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="form-outline">
+                                <label asp-for="Sector_Name" class="control-label"></label>
+                                <input asp-for="Sector_Name" class="form-control" />
+                                <span asp-validation-for="Sector_Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a class="btn btn-outline-secondary" asp-action="IndexSectors" asp-controller="Sector"> Cancel </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
+
+<script src="~/js/jquery-3.5.1.min.js"></script>
+<script>
+    $(function () {
+        debugger;
+
+        $(".add_phone_number").on("click", function () {
+            var phoneNumberDiv = '<div class="phone-number form-group"><input type="text" name="Phonessectors" placeholder="رقم النليفون" /><button type="button" class="remove-phone-number">إحذف</button></div>';
+            $("#phoneNumbersContainer").append(phoneNumberDiv);
+        });
+
+        $("#phoneNumbersContainer").on("click", ".remove-phone-number", function () {
+            $(this).parent().remove();
+        });
+
+        $(".add_address").on("click", function () {
+            var addressDiv = '<div class="addresstitle form-group">  <input type="text" name="AddressArea" placeholder="أدخل عنوان المنطقة" /><button type="button" class="removeaddres">إحذف</button></div>';
+            $("#AddressContainer").append(addressDiv);
+        });
+
+        $("#AddressContainer").on("click", ".removeaddres", function () {
+            $(this).parent().remove();
+        });
+
+        $(".AddAreatosectorbtn").click(function () {
+            debugger;
+
+            let html = `
+                                      <div class="col">
+                          <div class="form-outline">
+                              <label  class="control-label"> المنطقة</label>
+                              <input name="Areaname" id="Areaname" class="form-control" />
+
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="form-outline">
+                              <label  class="control-label"> عنوان المنطقة</label>
+                              <input name="AddressArea" id="AddressArea" class="form-control" />
+
+                              <div id="AddressContainer">
+                                  <div class="addresstitle">
+                                      <input type="text" name="AddressArea" placeholder="أدخل عنوان المنطقة" />
+                                      <button type="button" class="add_address">اضافة عنوان المنطقة</button>
+                                  </div>
+                              </div>
+
+
+                          </div>
+                      </div>
+
+                       <div class="col">
+                          <div class="form-outline">
+
+                      <div id="phoneNumbersContainer">
+                          <div class="phone-number">
+                              <input type="text" name="Phonessectors" placeholder="رقم التليفون" />
+                              <button type="button" class="add_phone_number">أضافة رقم  اخر</button>
+                          </div>
+                      </div>
+                      </div>
+                      </div>
+
+
+                    `
+            $("#AddAreatosector").append(html);
+        })
+
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Shareholder_Structure>
+
+
+
+<table class="table table table-hover table-striped" style="direction:rtl">
+    <thead class="table-primary">
+        <tr>
+@*            <th scope="col">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Statement)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Number_Shares)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Value_Bound)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Percentage)
+            </th>
+            @*   <th scope="col">
+            @Html.DisplayNameFor(model => model.ImgPath)
+            </th>*@
+
+
+            <th scope="col">تفاصيل</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              @*  <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_Shares)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value_Bound)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Percentage)
+                </td>
+                @*      <td>
+            @*asp-append-version="true"
+            @*<img src="~/ProductImages/@item.ImgPath" class="rounded-circle" height="40" width="40" />
+            </td>*@
+                @*asp-action="Details" asp-route-id="@item.Id"*@
+                <td>
+                    <a class="btn btn-outline-warning Details"  data-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تفاصيل
+                    </a>
+                </td>
+
+                <td>
+
+                    <a class="btn btn-outline-primary" asp-action="Create" asp-route-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تعديل
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger Deletemember" id="" data-id="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        حذف
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="Detailpop">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+    $(function () {
+        $(".Details").click(function () {
+            debugger;
+            let id = $(this).data("id");
+            $.ajax({
+                url: '/Shareholder/Details/' + id,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $("#Detailpop").empty();
+                    
+                    
+                    let html = `
+                                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="direction:rtl">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                         
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                                البيان<p>${data.member.statement}</p>
+                                                                عدد الاسهم<p>${data.member.number_Shares}</p>
+                                                                القيمة الدفترية بالجنية<p>${data.member.value_Bound}</p>
+                                                                النسية المؤية<p>${data.member.percentage}</p>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                    $("#Detailpop").append(html);
+                    $("#myModal").modal('show'); // Show the modal after appending the content
+                },
+                error: function () {
+                    console.log('Error loading data.');
+                }
+            });
+        });
+
+
+        $(".Deletemember").click(function () {
+            debugger;
+
+            // Use SweetAlert2 for confirmation
+            Swal.fire({
+                title: 'هل تريد حقا الحذف؟؟',
+                text: '',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'نعم إحذف!',
+                cancelButtonText: 'إلغاء الحذف',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // User clicked the "Yes, delete it!" button
+
+                    let id = $(this).data("id");
+                    $.ajax({
+                        url: '/Shareholder/Delete/' + id,
+                        type: 'GET',
+                        success: function (data) {
+                       
+                            // Handle success
+                            Swal.fire({
+                                title: 'تم الحذف بنجاح',
+                                icon: 'sucess',
+                                showCancelButton: true,
+                                cancelButtonText: 'رجوع',
+                            })
+                            location.reload(true);
+                        },
+                        error: function () {
+                            console.log('Error loading data.');
+                        }
+                        
+                    });
+                } else {
+                    // User clicked the "No, cancel!" button or closed the dialog
+                    console.log('Deletion canceled.');
+                }
+            });
+        });
+
+    });
+
+    // Show the modal
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+    myModal.show();
+</script>

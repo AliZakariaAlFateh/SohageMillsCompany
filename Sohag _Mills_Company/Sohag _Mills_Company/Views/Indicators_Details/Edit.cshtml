@@ -1,0 +1,110 @@
+﻿@model Indicators_Details
+@{
+    Layout = "_Dashbord_Layout";
+    ViewData["Title"] = "تعديل كمية بيان";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<style>
+    /*  .ui-datepicker-calendar {
+       display: none; 
+       } */
+
+</style>
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" style="direction:rtl" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">تعديل كمية بيان</h1>
+                <a class="btn-close m-0" asp-action="Index"></a>
+            </div>
+
+            <div class="modal-body p-5 pt-0">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-floating mb-3">
+                        <input type="hidden" asp-for="id" class="form-control" />
+                    </div>
+                    <label asp-for="Quentity_Year" class="control-label"></label>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Quentity_Year" class="form-control rounded-4 mt-3" />
+                        <span asp-validation-for="Quentity_Year" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <label asp-for="Year_Statement" class="control-label h5 "></label>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Year_Statement" type="month"  class="form-control rounded-4 mt-3" />
+                        @* <input asp-for="Year_Statement" id="" class="form-control rounded-4 mt-3 ui-datepicker-calendar" format="yy" /> *@
+                        <span asp-validation-for="Year_Statement" class="text-danger"></span>
+                    </div>
+
+                    <br />
+                    <label asp-for="Statements.IndicatorId" class="control-label"></label>
+                    <div class="input-group mb-3">
+                        <select asp-for="Statements.IndicatorId" class="form-control rounded-4 mt-3" id="IndicatorId" asp-items="ViewBag.IndicatorId"></select>
+                        <span asp-validation-for="Statements.IndicatorId" class="text-danger"></span>
+                    </div>
+                    <label asp-for="StatementId" class="control-label"></label>
+                    <div class="input-group mb-3">
+                        <select asp-for="StatementId" class="form-control rounded-4 mt-3" id="StatementId" asp-items="ViewBag.StatementId"></select>
+                        <span asp-validation-for="StatementId" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="d-grid gap-2">
+                        <input type="submit" value="تعديل" class="btn btn-primary rounded-3 mb-2" />
+                        <a class="btn btn-outline-secondary rounded-3" asp-action="Index">الغاء</a>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    
+    $(function () {
+        $('#IndicatorId').on('change', function (e) {
+            
+            var optionSelected = $("option:selected", this);
+            var id = this.value;
+            $.ajax({
+                url: '/Indicators_Details/JsonData/' + id,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    debugger;
+                    // Assuming you have a dropdown element with id 'yourDropdown'
+                    var dropdown = $('#StatementId');
+                    // Clear existing options
+                    dropdown.empty();
+
+                    // Add a default option
+                    // dropdown.append('<option value="">Select an option</option>');
+
+                    // Iterate through the data and append options to the dropdown
+                    for (var i = 0; i < data.length; i++) {
+                        console.log("Saboor")
+                        debugger;
+                        if (@Model.StatementId == data[i].id) {
+                            dropdown.append('<option selected="selected" value="' + data[i].id + '">' + data[i].statement_Name + '</option>');
+                            console.log("Saboor")
+                        }
+                        else
+                            dropdown.append('<option value="' + data[i].id + '">' + data[i].statement_Name + '</option>');
+                    }
+                },
+                error: function () {
+                    console.log('Error loading data.');
+                }
+            })
+        }).trigger('change');
+
+        // $("#datepicker").datepicker({ dateFormat: "yy", changeYear: true, yearRange: "-4:+0" })
+        //     .attr("type", "text");
+    })
+</script>
+
+
