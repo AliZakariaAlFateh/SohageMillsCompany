@@ -1,0 +1,96 @@
+﻿
+
+
+
+@model clients
+@{
+    Layout = "_Dashbord_Layout";
+    ViewData["Title"] = "تعديل عميل";
+}
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" style="direction:rtl" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" style="max-width:90%" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">تعديل عميل</h1>
+                <a class="btn-close m-0" asp-action="Index"></a>
+            </div>
+
+            <div class="modal-body p-5 pt-0">
+                <form asp-action="Edit" enctype="multipart/form-data" class="row">
+                    <div asp-validation-summary="All" class="text-danger col-12"></div>
+                    <div class="form-floating mb-3">
+                        <input type="hidden" asp-for="Id" class="form-control" />
+                    </div>
+                    <label asp-for="Clint_Code" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Clint_Code" class="form-control rounded-4" />
+                        <span asp-validation-for="Clint_Code" class="text-danger"></span>
+                    </div>
+                    <label asp-for="Clint_Name" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Clint_Name" class="form-control rounded-4" />
+                        <span asp-validation-for="Clint_Name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <br />
+
+                    <label asp-for="Clint_Adress" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Clint_Adress" class="form-control rounded-4" />
+                        <span asp-validation-for="Clint_Adress" class="text-danger"></span>
+                    </div>
+                    <label asp-for="Nationaity" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Nationaity" class="form-control rounded-4" />
+                        <span asp-validation-for="Nationaity" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <br />
+
+                    <label asp-for="Clint_Balance" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Clint_Balance" class="form-control rounded-4" />
+                        <span asp-validation-for="Clint_Balance" class="text-danger"></span>
+                    </div>
+                    <label asp-for="Purchase_under_settlement" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Purchase_under_settlement" class="form-control rounded-4" />
+                        <span asp-validation-for="Purchase_under_settlement" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <br />
+
+                    <label asp-for="sale_under_settlement" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="sale_under_settlement" class="form-control rounded-4" />
+                        <span asp-validation-for="sale_under_settlement" class="text-danger"></span>
+                    </div>
+                    <label asp-for="Contribution_percentage" class="control-label h6 pt-2 col-2"></label>
+                    <div class="col-4">
+                        <input asp-for="Contribution_percentage" class="form-control rounded-4" />
+                        <span asp-validation-for="Contribution_percentage" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="d-grid gap-2">
+                        <input type="submit" value="تعديل" class="btn btn-primary rounded-3 mb-2" />
+                        <a class="btn btn-outline-secondary rounded-3" asp-action="Index">الغاء</a>
+                    </div>
+                    <br />
+
+                    @* <small class="text-body-secondary">Using the Create page, you can add an unlimited number of Brands.</small> *@
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

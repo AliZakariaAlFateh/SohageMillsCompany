@@ -1,0 +1,130 @@
+﻿@model IEnumerable<clients>
+
+<table class="table table table-hover table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Clint_Code)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Clint_Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Clint_Adress)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nationaity)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Clint_Balance)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Purchase_under_settlement)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.sale_under_settlement)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Contribution_percentage)
+            </th>
+            <th scope="col">تعديل بيانات العميل</th>
+            <th scope="col">حذف بيانات العميل</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clint_Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clint_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clint_Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nationaity)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clint_Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Purchase_under_settlement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sale_under_settlement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contribution_percentage)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-controller="Clients" asp-route-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تعديل
+                    </a>
+                </td>
+                <td>
+                    <div class="btn btn-outline-danger Deletclint" id="@item.Id"  data-id="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        حذف
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+                    <script>
+    $(".Deletclint").click(function () {
+        let id =  this.id
+        debugger;
+        Swal.fire({
+            title: 'هل تريد حقا الحذف؟؟',
+            text: '',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'نعم إحذف!',
+            cancelButtonText: 'إلغاء الحذف',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // User clicked the "Yes, delete it!" button
+                debugger
+                
+                $.ajax({
+                    url: '/Clients/Delete/' + id,
+                    type: 'GET',
+                    success: function (data) {
+                        debugger;
+                        // Handle success
+                        Swal.fire({
+                            title: 'تم الحذف بنجاح',
+                            icon: 'sucess',
+                        });
+                        window.location.href = "/Clients/Index";
+                        
+                    },
+                    error: function () {
+                        console.log('Error loading data.');
+                    }
+                });
+            } else {
+                // User clicked the "No, cancel!" button or closed the dialog
+                console.log('Deletion canceled.');
+            }
+        });
+    });
+
+
+</script>

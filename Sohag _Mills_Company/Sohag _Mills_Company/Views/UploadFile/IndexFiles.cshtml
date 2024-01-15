@@ -1,0 +1,135 @@
+﻿@model IEnumerable<FilePdf>
+@{
+    ViewData["Title"] = "Home Team";
+    //   Layout = "_MyLayout";
+    string Pagename = "";
+}
+
+@* <div class="row g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="team-item rounded overflow-hidden">
+                <div class="d-flex">
+                    @if (item.ImageName == null)
+                    {
+                        <img class="img-fluid" src="/Images/PDF_file.png" alt="Placeholder Image" style="width:200px; height:300px">
+                    }
+                    else
+                    {
+                        <img class="img-fluid " src="/Images/@item.ImageName" style="width:200px; height:300px">
+                    }
+
+                   <!--        <div class="team-social w-25">
+                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                </div> -->
+                </div>
+                <div class=" row p-4">
+                    <h5>@item.PdfName</h5>
+                    <span>@item.FileDescription</span>
+                    <button type="button" class="btn btn-primary openfile" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="@item.Id">
+                        افتح الملف
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div> *@
+
+
+<div class="container table-responsive mt-3" style="direction:rtl">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr style="background-color:rgb(0, 102, 153);color:#fff;text-align:center">
+                @* <th scope="col">Image</th> *@
+                <th scope="col">أسم الملف</th>
+               @*  <th scope="col">File Description</th> *@
+                <th scope="col">الملف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="color:#f00;text-align:center">
+@*                     <td>
+                        @if (item.ImageName == null)
+                        {
+                            <img class="img-fluid" src="/Images/PDF_file.png" alt="Placeholder Image" style="width:50px; height:50px">
+                        }
+                        else
+                        {
+                            <img class="img-fluid" src="/Images/@item.ImageName" style="width:50px; height:50px">
+                        }
+                    </td> *@
+                    <td>@item.PdfName</td>
+
+                    @* <td>@item.FileDescription</td> *@
+                    <td>
+                        <button type="button" class="btn btn-primary openfile" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="@item.Id">
+                            Open File
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<div id="openfilepop"></div>
+<!-- Add these lines to include Bootstrap CSS and JS files from a CDN -->
+@* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="...">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="..." crossorigin="anonymous"></script>
+     *@
+@section scripts {
+    <script src="~/js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(() => {
+            $(".openfile").click(function () {
+                let id = $(this).attr('data-id'); // Corrected from 'atrr' to 'attr'
+                $('#openfilepop').empty();
+
+                getActionById('/UploadFile/Details', id, (error, data) => {
+                    debugger
+                    if (error) {
+                        console.error('Error:', error);
+                    } else {
+                        console.log(data.res);
+                        let html = `
+                                <div class="modal fade" id="modelfilepdf" tabindex="-1">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">${data.res.pdfName}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                        <embed class="w-100" src="/Images/${data.res.pdfName}" height="500" width="100%"></embed>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+                        $('#openfilepop').append(html);
+                        $("#modelfilepdf").modal('show');
+                        // Show the modal after appending the content
+
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+
+}

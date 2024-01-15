@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logomills.png">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    @* @ViewData["Title"] *@
+    <title>لوحة التحكم</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="~/css/styles_Dashbord.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+
+    <partial name="~/Views/Shared/_Navbar_Dashbord.cshtml" />
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">EagelTeam</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            لوحة التحكم
+                        </a>
+                        <div class="sb-sidenav-menu-heading"> مطاحن مصر العليا بسوهاج</div>
+@*                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Layouts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            </nav>
+                        </div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            الصفحات الرئيسية
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+
+
+                            <!-- المستخدمين-->
+
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#SystemUsers" aria-expanded="false" aria-controls="SystemUsers">
+                                        المستخدمين
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="SystemUsers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <a class="nav-link" asp-action="AllUsers" asp-controller="systemusers"> كل المستخدمين  </a>
+                                            }
+                                            
+                                            @* <a class="nav-link" asp-action="Create" asp-controller="Shareholder">أضافةعضو</a> *@
+
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+
+                            <!--   -->
+
+
+
+
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseFile" aria-expanded="false" aria-controls="pagesCollapseFile">
+                                    إرفاق الملفات
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseFile" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        @* <a class="nav-link" asp-action="CreateAbout" asp-controller="AboutCompany">إضافة نبذة عن الشركة</a> *@
+                                        <a class="nav-link" asp-action="IndexFilesAdmin" asp-controller="UploadFile">الملفات </a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthabout" aria-expanded="false" aria-controls="pagesCollapseAuthabout">
+                                    نبذة عن الشركة
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuthabout" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="CreateAbout" asp-controller="AboutCompany">إضافة نبذة عن الشركة</a>
+                                        <a class="nav-link" asp-action="IndexAdminAbout" asp-controller="AboutCompany">كل النبذ</a>
+                                    </nav>
+                                </div>
+
+
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    أعضاء مجلس الإدارة
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        @* <a class="nav-link" asp-action="CreateTeam" asp-controller="CompanyTeam">أضافةعضو</a> *@
+                                        <a class="nav-link" asp-action="IndexAdminTeam" asp-controller="CompanyTeam">كل الأعضاء</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseIndicators" aria-expanded="false" aria-controls="pagesCollapseIndicators">
+                                    المؤشرات
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseIndicators" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="Create" asp-controller="Indicators">اضافة مؤشر</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Indicators">كل المؤشرات</a>
+                                    </nav>
+                                </div>
+
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseStatement" aria-expanded="false" aria-controls="pagesCollapseStatement">
+                                    بيانات المؤشر
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseStatement" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="Create" asp-controller="Statement">اضافة بيان</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Statement">كل البيانات</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseIndicators_Details" aria-expanded="false" aria-controls="pagesCollapseIndicators_Details">
+                                    كمية بيان المؤشر
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseIndicators_Details" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="Create" asp-controller="Indicators_Details">اضافة كمية بيان</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Indicators_Details">كل كميات  بيانات الموشرات</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseClient" aria-expanded="false" aria-controls="pagesCollapseClients">
+                                     عملاء الشركة
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseClient" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="Create" asp-controller="Clients">اضافة عميل</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Clients">كل العملاء</a>
+                                    </nav>
+                                </div>
+                                @*       <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                Error
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="401.html">401 Page</a>
+                                <a class="nav-link" href="404.html">404 Page</a>
+                                <a class="nav-link" href="500.html">500 Page</a>
+                                </nav>
+                                </div> *@
+                            </nav>
+                        </div>
+
+
+                        <!--الاعضاء المساهمون-->
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseSharers" aria-expanded="false" aria-controls="pagesCollapseSharers">
+                                    الأعضاء المساهمون
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseSharers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="IndexSharHolders" asp-controller="Shareholder"> الأعضاء المساهمون </a>
+                                        @* <a class="nav-link" asp-action="Create" asp-controller="Shareholder">أضافةعضو</a> *@
+
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!--   -->
+
+                        <!-- القطاعات-->
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuthsec" aria-expanded="false" aria-controls="pagesCollapseAuthsec">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseSector" aria-expanded="false" aria-controls="pagesCollapseSector">
+                                        القطاعات
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseSector" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" asp-action="IndexSectors" asp-controller="Sector">  القطاعات </a>
+                                            <a class="nav-link" asp-action="IndexArea" asp-controller="Sector">المناطق</a>
+                                            <a class="nav-link" asp-action="IndexPhones" asp-controller="Sector">التليفونات</a>
+
+                                        </nav>
+                                    </div>
+                            </nav>
+                        </div>
+
+
+                        <!--  -->
+                        <!-- الخطط المستقبليلة-->
+
+
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsePlan" aria-expanded="false" aria-controls="pagesCollapsePlan">
+                                    الخطط المستقبليلة
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapsePlan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="IndexPlan" asp-controller="FuturePlan">  الخطط المستقبليلة </a>
+                                        @* <a class="nav-link" asp-action="Create" asp-controller="FuturePlan">أضافة خطة</a> *@
+
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+                        <!--  -->
+                        <!-- بيانات صورة  -->
+
+
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#PageForImages" aria-expanded="false" aria-controls="PageForImages">
+                                      بيانات صورة 
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="PageForImages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="IndexImages" asp-controller="ImageCarousel">بيانات   عن الصور </a>
+                                        @* <a class="nav-link" asp-action="CreateImage" asp-controller="ImageCarousel">أضافة  صورة</a> *@
+
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div> 
+
+
+                        <!--  -->
+                        <!-- بيانات عن شهادة الأيزو  -->
+
+
+
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Iso_Certifications" aria-expanded="false" aria-controls="Iso_Certifications">
+                                    بيانات عن شهادة الأيزو
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="Iso_Certifications" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" asp-action="IndexCertification" asp-controller="Iso_Certification"> بيانات عن شهادة الأيزو </a>
+                                        @* <a class="nav-link" asp-action="CreateImage" asp-controller="ImageCarousel">أضافة  صورة</a> *@
+
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+
+
+                        <!--  -->
+
+
+
+
+
+@*                         <div class="sb-sidenav-menu-heading">Addons</div>
+                        <a class="nav-link" href="charts.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a>
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a> *@
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Start Bootstrap
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main role="main" class="pb-3">
+                @*                 <h1>@ViewData["Title"]</h1> *@
+                @RenderBody()
+
+            </main>
+            <div id="layoutAuthentication_footer">
+                @* <partial name="_Footer" /> *@
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Simple DataTables -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+
+    <!-- Your Custom Scripts -->
+    <script src="~/js/scripts_Dashbord.js"></script>
+    <script src="~/js/datatables-simple-demo.js"></script>
+    <script src="~/js/companyteam/indexmain.js"></script>
+
+    <!-- Section Scripts -->
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

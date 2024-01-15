@@ -1,0 +1,49 @@
+﻿@model List<Sector>
+
+<div class=" container" style="direction: rtl;">
+
+    <div class="row justify-content-center">
+        <h1>القطاعات</h1>
+
+        @foreach (var sector in Model)
+        {
+            <div class=" col-md-12 ">
+                <div class="card-body shadow p-3 mb-5 bg-body rounded">
+                    <h3 class="card-title">@sector.Sector_Name</h3>
+
+                    <div class="row border border-light">
+                        <div class="col-md-6 mt-2">
+                            <h6 class="card-text">المناطق</h6>
+                        </div>
+                        <div class="col-md-4 mt-2 ">
+                            <h6 class="card-text">العنوان</h6>
+                        </div>
+                        <div class="col-md-2 mt-2 ">
+                            <h6 class="card-text">أرقام التليفونات</h6>
+                        </div>
+                    </div>
+
+                    @foreach (var area in sector.Region_Sector_Details)
+                    {
+                        <div class="row border border-light">
+                            <div class="col-md-6 mt-2">
+                                <span class="gab-1">@area.Area_Name</span>
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <span>@area.Address_Name</span>
+                            </div>
+                            <div class="col-md-2 mt-2 ">
+                                <div>
+                                    @foreach (var phone in area.PhonesSectors)
+                                    {
+                                        <p>@phone.PhoneNumber</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

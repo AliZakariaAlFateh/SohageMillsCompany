@@ -1,0 +1,97 @@
+﻿<div class="modal fade modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="Id" value="" class="form-control" id="masterFuture">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">نص الخطة</label>
+                        
+                        <textarea class="form-control" id="Plan_Text"></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+               
+                <button type="button" class="btn btn-primary" id="Save">حفظ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+    $("#Save").click(function () {
+
+
+
+
+        AddPlanDetail();
+
+        function AddPlanDetail() {
+            var textPlan = $("#Plan_Text").val();
+            var FurtureplanID = $("#masterFuture").val();
+
+            if (textPlan == '' || textPlan.length === 0) {
+                Swal.fire({
+                    title: "البيانات غير صحيحة",
+                    text: "Here's my error message!",
+                    icon: 'error',
+                    confirmButtonText: "Ops",
+                });
+                return;
+            } else {
+                var obj = {
+                    Plan_Text: textPlan,
+                    FuturePlanId: FurtureplanID
+                };
+                AddDetailsForFuture(obj);
+            }
+        }
+
+        function AddDetailsForFuture(obj) {
+            $.ajax({
+                type: "POST",
+                url: '/FuturePlanDetails/CreateFutureDetails',
+                data: obj,
+                success: function (response) {
+
+                    $("#exampleModal").modal("hide")
+                    Swal.fire({
+                        title: 'تم الحفظ بنجاح',
+                        icon: 'success',
+                        showCancelButton: true,
+                        cancelButtonText: 'رجوع',
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                        title: 'خطأ أثناء حفظ البيانات',
+                        icon: 'error',
+                        confirmButtonText: 'حاول مرة أخرى',
+                    });
+                }
+            });
+        }
+
+
+
+
+    });
+
+
+
+
+
+</script>
+
+
+

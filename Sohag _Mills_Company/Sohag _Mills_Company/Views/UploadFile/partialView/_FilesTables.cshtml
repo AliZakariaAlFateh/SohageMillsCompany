@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FilePdf>
+
+
+
+<table class="table table table-hover table-striped">
+    <thead class="table-primary">
+        <tr>
+            @*            <th scope="col">
+            @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.FileDescription)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PdfName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ImageIFormFile)
+            </th>
+            @*   <th scope="col">
+            @Html.DisplayNameFor(model => model.ImgPath)
+            </th>*@
+
+
+            <th scope="col">تفاصيل</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileDescription)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PdfName)
+                </td>
+
+                <td>
+                    @if (item.ImageName == null)
+                    {
+                        <img class="img-fluid" src="~/Images/PDF_file.png" alt="Placeholder Image" style="width:40px; height:40px">
+                    }
+                    else
+                    {
+                        <img class="img-fluid " src="~/Images/@item.ImageName" style="width:40px; height:40px">
+                    }
+                    @* <img src="~/Images/@item.ImageName" class="rounded-circle" height="40" width="40" /> *@
+                </td>
+                @*asp-action="Details" asp-route-id="@item.Id"*@
+                <td>
+                    <a class="btn btn-outline-warning Detailsfiles" data-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تفاصيل
+                    </a>
+                </td>
+
+                <td>
+
+                    <a class="btn btn-outline-primary" asp-action="CreateFile" asp-route-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تعديل
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger DeleteFile" data-id="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        حذف
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="Detailpop">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/companyteam/uploadfiles.js"></script>

@@ -1,0 +1,205 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@* @model IEnumerable<CampanyTeam> *@
+
+<!-- Carousel Start -->
+
+<partial name="Components_of_Index/_Carousel" />
+
+<!-- Carousel end -->
+<!-- About Start -->
+
+<partial name="Components_of_Index/_About" />
+
+<!-- About End -->
+<!-- Testimonial Start -->
+
+@* <partial name="Components_of_Index/_Testimonial" /> *@
+
+<!-- Testimonial End -->
+<!-- Service Start -->
+
+@* <partial name="Components_of_Index/_Service" /> *@
+
+<!-- Service End -->
+<!-- Section Certificates Start  -->
+
+<partial name="Components_of_Index/_Certificates" />
+
+<!-- Section Certificates End  -->
+<!-- Features Start -->
+
+@* <partial name="Components_of_Index/_Features" /> *@
+
+<!-- Features End -->
+<!-- Mills Start -->
+
+@* <partial name="Components_of_Index/_Mills" /> *@
+
+<!-- Mills End -->
+<!-- Quote Start -->
+
+<partial name="Components_of_Index/_Quote" />
+
+<!-- Quote End -->
+
+
+@* <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+
+        // /* Smooth move to the carousel  */
+        // $(".carousel").carousel({
+        //     /* 3 seconds to move the next pictures */
+        //     interval: 3000
+        // });
+
+        // var Offset_of_First_Section_ByInnerHeigth = $('.navbar').innerHeight()
+        // window.console.log(Offset_of_First_Section_ByInnerHeigth);
+        // $('.navbar').css('height', Offset_of_First_Section_ByInnerHeigth)
+        var Offset_of_First_Section_ByInnerHeigth = $('.ToAnySection').innerHeight(); // Adjust this value as needed
+        console.log("height of the navbar :  ", Offset_of_First_Section_ByInnerHeigth)
+        $('#MoveSections > a').click(function (e) {
+            e.preventDefault();
+            var move = $(this).text();
+            window.console.log(move);
+            // $('html, body').animate({
+            //     scrollTop: $('#' + move).offset().top - Offset_of_First_Section_ByInnerHeigth
+            // }, 1000);
+
+
+            $('html, body').animate({
+                scrollTop: $('#' + move).offset().top
+            }, 1000);
+        });
+
+
+
+        });
+
+
+
+
+    });
+
+
+
+
+</script> *@
+
+
+@* //<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> *@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+
+    // $(function () {
+    //     "use strict";
+
+
+    //     // $('.navbar').css('height', Offset_of_First_Section_ByInnerHeigth)
+    //     var Offset_of_First_Section_ByInnerHeigth = $('.ToAnySection').innerHeight(); // Adjust this value as needed
+    //     console.log("height of the navbar :  ", Offset_of_First_Section_ByInnerHeigth)
+    //     $('#MoveSections > a').click(function (e) {
+    //         e.preventDefault();
+    //         var move = $(this).text();
+    //         window.console.log("Section To Move It  :::::   ",move);
+    //         // $('html, body').animate({
+    //         //     scrollTop: $('#' + move).offset().top - Offset_of_First_Section_ByInnerHeigth
+    //         // }, 1000);
+
+
+    //         $('html, body').animate({
+    //             scrollTop: $('#' + move).offset()
+    //         }, 1000);
+
+
+
+
+    //     });
+
+
+
+    //     // // Back to top button
+    //     // $(window).scroll(function () {
+
+    //     //     if ($(this).scrollTop() > 300) {
+    //     //         $('.back-to-top').fadeIn('slow');
+    //     //     } else {
+    //     //         $('.back-to-top').fadeOut('slow');
+    //     //     }
+    //     // });
+    //     $('.back-to-top').click(function () {
+
+    //         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
+    //         return false;
+
+
+    //     });
+    
+    
+    
+    
+    
+    
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $(function () {
+        var Offset_of_First_Section_ByInnerHeigth = $('.ToAnySection').innerHeight();
+
+
+
+
+        $('#MoveSections > a').click(function (e) {
+
+
+
+
+
+
+            // e.preventDefault();
+            //id = $(this).attr("idDetails")
+            var dataatrr = $(this).attr("MoveTo_Section")
+            console.log(dataatrr)
+            //var move = $(this).text().trim(); // Trim to remove any leading/trailing spaces
+
+            // Check if the element exists
+            var targetElement = $('#' + dataatrr);
+            if (targetElement.length) {
+                // Scroll to the element
+                $('html, body').animate({
+                    scrollTop: targetElement.offset().top - Offset_of_First_Section_ByInnerHeigth
+                }, 1000);
+            } else {
+                console.error('Element with ID ' + dataatrr + ' not found.');
+            }
+        });
+    });
+
+
+</script>

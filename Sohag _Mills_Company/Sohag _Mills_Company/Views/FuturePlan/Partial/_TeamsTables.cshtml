@@ -1,0 +1,485 @@
+﻿@model IEnumerable<FuturePlan>
+
+
+
+<table class="table table table-hover table-striped" style="direction:rtl">
+    <thead class="table-primary">
+        <tr>
+            @*            <th scope="col">
+            @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Plan_Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Plane_Year)
+            </th>
+            @*   <th scope="col">
+            @Html.DisplayNameFor(model => model.ImgPath)
+            </th>*@
+
+
+            <th scope="col">تفاصيل</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+            <th scope="col">اضافة تفاصيل عن الخطة</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plan_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plane_Year)
+                </td>
+
+                @*      <td>
+            @*asp-append-version="true"
+            @*<img src="~/ProductImages/@item.ImgPath" class="rounded-circle" height="40" width="40" />
+            </td>*@
+                @*asp-action="Details" asp-route-id="@item.Id"*@
+                <td>
+                    <a class="btn btn-outline-warning Details" data-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تفاصيل
+                    </a>
+                </td>
+
+                <td>
+
+                    <a class="btn btn-outline-primary" asp-action="Create" asp-route-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تعديل
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger Deletemember" id="" data-id="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        حذف
+                    </a>
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-danger Future_Details" data-toggle="modal" data-target="#exampleModal" data-Details="@item.Id" idDetails="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        اضافة
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<div id="Detailpop">
+</div>
+<partial name="_PopUpCreateFutureDetails">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+        $(function () {
+
+
+
+            $(".Details").click(function () {
+                debugger;
+                let id = $(this).data("id");
+                //console.log(id)
+                $.ajax({
+                    url: '/FuturePlan/Details/' + id,
+                    type: 'GET',
+                    dataType: 'json',
+                    // data: { id: '' },
+                    success: function (data) {
+                        debugger
+                        console.log(data);
+                        $("#Detailpop").empty();
+                        let Date_D = data[0].plane_Year
+                        // التاريخ الهجرى
+
+                        let options_ar = { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' };
+
+                        // 1st method
+                        let locales = ["ar-u-ca-islamic", "ar-u-nu-latn"];
+
+                        var DateTimeArabicIslamic = new Date(Date_D);
+
+                        DateTimeArabicIslamic = new Intl.DateTimeFormat(locales, options_ar).format(DateTimeArabicIslamic);
+
+                       // التاريخ الميلادى
+
+                        var date = new Date(Date_D);
+
+                        // Format the date in Arabic
+
+                        var options_En = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                        var formattedDateMiladdy = date.toLocaleDateString('ar-EG', options_En);
+
+
+                        console.log(Date.now())
+
+                        /////
+                        let DateArabic = data[0].plane_Year
+
+                        let html = `
+                             <div class="modal fade modal-xl" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="direction:rtl" >
+                               <div class="modal-dialog" >
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                    الخطة<p>${data[0].plan_Name}</p>
+                                             السنة الميلادية <p>${formattedDateMiladdy}</p>
+                                            التاريخ الهجرى   <p>${DateTimeArabicIslamic}</p>
+                                     <input type=hidden value='${data[0].id}' masteridpopup='${data[0].id}' id="MasterID">
+                                    </div>
+                                    <div>
+                                    <table class="table table table-hover table-striped" style="direction:rtl">
+                                            <thead  class="table-primary">
+                                        <tr>
+                                        <th scope="col">نص الخطة</th>
+                                        <th scope="col">تعديل</th>
+                                        <th scope="col">حفظ التعديل</th>
+                                        <th scope="col">حذف</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="DataDetails">
+
+
+
+                                </tbody>
+                            </table>
+                                                            
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                        $("#Detailpop").append(html);
+                        //////Collect Details///////
+                        let htmlDetails;
+                        for (let i = 0; i < data[0].planDetails.length; i++) {
+                            //console.log(data[0].planDetails[i].futurePlanId)
+                             htmlDetails+=
+
+                                `
+                                <tr>
+                                    <td>
+                                                                    <textarea class="form-control TextAreaInput" dataidDetailsTextArea='${data[0].planDetails[i].id}' disabled>${data[0].planDetails[i].plan_Text}</textarea>
+                                    </td>
+                                            <td >
+                                                                <button class='btn btn-outline-primary EditMemberDetails' id="gggg" dataidDetails='${data[0].planDetails[i].id}'>تعديل</button>
+                                    </td>
+                                            <td >
+                                                                <button class='btn btn-outline-success SaveEditDetails' dataidDetails='${data[0].planDetails[i].id}'>حفظ التعديل</button>
+                                    </td>
+                                            <td >
+                                                                <button class='btn btn-outline-danger DeleteMemberDetails' dataidDetails='${data[0].planDetails[i].id}'>حذف</button>
+                                    </td>
+                                </tr>`
+                                                     
+                        }
+                        $("#DataDetails").append(htmlDetails)
+
+                        ///////////////////////////
+
+                        $("#myModal").modal('show'); // Show the modal after appending the content
+                        //$('body').css("overflow", "hidden");
+                    },
+                    error: function () {
+                        console.log('Error loading data.');
+                    }
+                });
+            });
+
+
+            $(".Deletemember").click(function () {
+                debugger;
+
+                // Use SweetAlert2 for confirmation
+                Swal.fire({
+                    title: 'هل تريد حقا الحذف؟؟',
+                    text: '',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'نعم إحذف!',
+                    cancelButtonText: 'إلغاء الحذف',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // User clicked the "Yes, delete it!" button
+
+                        let id = $(this).data("id");
+                        $.ajax({
+                            url: '/FuturePlan/Delete/' + id,
+                            type: 'GET',
+                            success: function (data) {
+
+                                // Handle success
+                                Swal.fire({
+                                    title: 'تم الحذف بنجاح',
+                                    icon: 'sucess',
+                                    showCancelButton: true,
+                                    cancelButtonText: 'رجوع',
+                                })
+                                location.reload(true);
+                            },
+                            error: function () {
+                                console.log('Error loading data.');
+                            }
+
+                        });
+                    } else {
+                        // User clicked the "No, cancel!" button or closed the dialog
+                        console.log('Deletion canceled.');
+                    }
+                });
+            });
+
+
+            //let MasterPlanDetails;
+            $('.Future_Details').click(function () {
+
+
+                //id = $(this).data("Details");
+                id = $(this).attr("idDetails")
+                //MasterPlanDetails = id;
+                //console.log("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",MasterPlanDetails)
+                console.log("id : " + id)
+                $("#masterFuture").val(id)
+                $("#Plan_Text").val('')
+                $('#exampleModal').modal('show')
+            })
+
+
+            $("#close").click(function () {
+
+                $('#exampleModal').modal('hide')
+            
+            })
+
+
+            
+
+            //// Enable the text area for Edit DataDetails
+            var textareas = document.getElementsByClassName('TextAreaInput');
+            $(document).on("click", ".EditMemberDetails", function () {
+                //debugger
+                //console.log(textareas)
+                id = $(this).attr("dataidDetails"); // Use .attr() instead of .data()
+                for (let i = 0; i < textareas.length; i++) {
+                    if (textareas[i].getAttribute("dataidDetailsTextArea") == id) { // Use .getAttribute() instead of .data()
+                        textareas[i].removeAttribute('disabled');
+                        textareas[i].setAttribute('enable', 'enable');
+                        textareas[i].classList.add('ReadyToEdit');
+                        //idmaster = $("#MasterID").attr("masteridpopup")ط
+                        
+                        //alert($("#MasterID").attr("masteridpopup"))
+                        //alert(textareas[i].value)
+                    }
+                }
+            });
+            
+
+
+        });
+
+        
+
+        
+
+        // Save DataDetails
+        var textareasss = document.getElementsByClassName('TextAreaInput');
+        $(document).on("click", ".SaveEditDetails", function () {
+            //alert("Save Data Here")
+
+
+            id = $(this).attr("dataidDetails");
+            for (let i = 0; i < textareasss.length; i++) {
+                if (textareasss[i].getAttribute("dataidDetailsTextArea") == id) {
+                    // $("#myTextarea").prop("disabled")  ///ReadyToEdit
+                    if (!textareasss[i].disabled) {
+
+                        //if
+                        let id = textareasss[i].getAttribute("dataidDetailsTextArea")
+                        var PlanText = textareasss[i].value
+                        var FurtureplanID = textareasss[i].getAttribute("masteridplan");
+                        idmaster = $("#MasterID").attr("masteridpopup")
+
+                        //let FuturePlanId=
+                        debugger
+                        AddPlanDetail();
+
+                        function AddPlanDetail() {
+                            if (PlanText == '' || PlanText.length === 0) {
+                                Swal.fire({
+                                    title: "البيانات غير صحيحة",
+                                    text: "Here's my error message!",
+                                    icon: 'error',
+                                    confirmButtonText: "Ops",
+                                });
+                                return;
+                            } else {
+                                var obj = {
+                                    Id: id,
+                                    Plan_Text: PlanText,
+                                    FuturePlanId: idmaster
+                                };
+                                AddDetailsForFuture(obj);
+                            }
+                        }
+
+
+
+
+                        function AddDetailsForFuture(obj) {
+                            $.ajax({
+                                type: "POST",
+                                url: '/FuturePlanDetails/Edit',
+                                data: obj,
+                                success: function (response) {
+                                    textareasss[i].classList.remove('ReadyToEdit')
+                                    textareasss[i].removeAttribute('disabled');
+                                    textareasss[i].setAttribute('enable', 'enable');
+                                    $("#myModal").modal('hide');
+
+                                    Swal.fire({
+                                        title: 'تم التعديل بنجاح',
+                                        icon: 'success',
+                                        showCancelButton: true,
+                                        cancelButtonText: 'رجوع',
+                                    });
+                                },
+                                error: function () {
+                                    Swal.fire({
+                                        title: 'خطأ أثناء حفظ البيانات',
+                                        icon: 'error',
+                                        confirmButtonText: 'حاول مرة أخرى',
+                                    });
+                                }
+                            });
+                        }
+
+
+
+                        //end inner if
+                    }
+                    else {
+
+
+                        Swal.fire({
+                            title: '   عدل النص أولا ',
+                            icon: 'error',
+                            confirmButtonText: 'حاول مرة أخرى',
+                        });
+
+                    
+                    }
+
+
+
+
+                //end outer if
+                }
+
+                //end loop
+            }
+
+        });
+
+
+        //Delete DateDetails....
+        $(document).on("click", ".DeleteMemberDetails", function () {
+            //alert("Save Data Here")
+            id = $(this).attr("dataidDetails"); // Use .attr() instead of .data()
+            for (let i = 0; i < textareasss.length; i++) {
+                if (textareasss[i].getAttribute("dataidDetailsTextArea") == id) { // Use .getAttribute() instead of .data()
+                    // alert(textareasss[i].value)
+                    /////Ajax
+
+                    Swal.fire({
+                        title: 'هل تريد حقا الحذف؟؟',
+                        text: '',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'نعم إحذف!',
+                        cancelButtonText: 'إلغاء الحذف',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // User clicked the "Yes, delete it!" button
+                            $.ajax({
+                                url: '/FuturePlan/DeleteDetailsFuturePlan/' + id,
+                                type: 'GET',
+                                success: function (data) {
+                                    $("#myModal").modal('hide');
+                                    // Handle success
+                                    Swal.fire({
+                                        title: 'تم الحذف بنجاح',
+                                        icon: 'sucess',
+                                        showCancelButton: true,
+                                        cancelButtonText: 'رجوع',
+                                    })
+                                    //location.reload(true);
+                                },
+                                error: function () {
+                                    console.log('Error loading data.');
+                                }
+
+                            });
+                        } else {
+                            // User clicked the "No, cancel!" button or closed the dialog
+                            console.log('Deletion canceled.');
+                        }
+                    });
+
+
+
+                  ///End Ajax
+
+                }
+            }
+
+        });
+
+
+
+
+        
+
+
+
+
+
+
+        // Show the modal
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+        myModal.show();
+        
+        //let textareas = document.getElementsByClassName("TextAreaInput")
+
+   
+
+    </script>

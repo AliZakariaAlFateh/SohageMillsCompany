@@ -1,0 +1,155 @@
+﻿@model IEnumerable<PhonesSectors>
+<table class="table table table-hover table-striped" style="direction:rtl">
+    <thead class="table-primary">
+        <tr>
+        @*     <th scope="col">
+                @Html.DisplayNameFor(model => model.)
+            </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Phones_Address_Details.Area_Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+        @*     <th scope="col">تفاصيل</th> *@
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              @*   <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phones_Address_Details.Area_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                @*   <td>
+                   <a class="btn btn-outline-warning Detailsphone" data-id="@item.Id">
+                        <i class="bi bi-pen"></i>
+                        تفاصيل
+                    </a> 
+                </td>
+            *@
+                <td>
+
+                    <a class="btn btn-outline-primary" asp-action="CreatePhone" asp-route-area_id="@item.Phones_Address_DetailsId" asp-route-id="@item.Id" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="bi bi-pen"></i>
+                        تعديل
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger Deletephone" data-id="@item.Id">
+                        <i class="bi bi-trash3-fill"></i>
+                        حذف
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="Detailpop">
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+@* <script src="~/wwwroot/js/companyteam/all_area_index.js"></script> *@
+<script>
+
+    $(function () {
+
+        $(".Detailsphone").click(function () {
+            debugger;
+            let id = $(this).data("id");
+            $.ajax({
+                url: '/Sector/Detailsphone/' + id,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    // $("#Detailpop").empty();
+
+
+                    let html = `
+                                                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="direction:rtl">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+
+                                                                                        المنطقة<p>${data.member.Area_Name}</p>
+                                                                                            العنوان<p>${data.member.Address_Name}</p>
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+                    $("#Detailpop").append(html);
+                    $("#myModal").modal('show'); // Show the modal after appending the content
+                },
+                error: function () {
+                    console.log('Error loading data.');
+                }
+            });
+        });
+
+
+        $(".Deletephone").click(function () {
+            debugger;
+
+            // Use SweetAlert2 for confirmation
+            Swal.fire({
+                title: 'هل تريد حقا الحذف؟؟',
+                text: '',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'نعم إحذف!',
+                cancelButtonText: 'إلغاء الحذف',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // User clicked the "Yes, delete it!" button
+
+                    let id = $(this).data("id");
+                    $.ajax({
+                        url: '/Sector/DeletePhone/'+ id,
+                        type: 'GET',
+                        success: function (data) {
+
+                            // Handle success
+                            Swal.fire({
+                                title: 'تم الحذف بنجاح',
+                                icon: 'sucess',
+                                showCancelButton: true,
+                                cancelButtonText: 'رجوع',
+                            })
+                            location.reload(true);
+                        },
+                        error: function () {
+                            console.log('Error loading data.');
+                        }
+
+                    });
+                } else {
+                    // User clicked the "No, cancel!" button or closed the dialog
+                    console.log('Deletion canceled.');
+                }
+            });
+        });
+
+    });
+
+
+</script>

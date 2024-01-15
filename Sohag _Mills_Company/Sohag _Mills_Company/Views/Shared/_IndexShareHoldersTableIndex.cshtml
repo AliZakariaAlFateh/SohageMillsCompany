@@ -1,0 +1,69 @@
+﻿@* @model IEnumerable<Shareholder_Structure>
+@{
+   
+    //   Layout = "_MyLayout";
+
+} *@
+
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table table-reversed " style="color:#000 !important">
+                <thead>
+                    <tr>
+                        <th>بيان </th>
+                        <th>عدد الاسهم </th>
+                        <th>القيمة الدفترية بالجنية  </th>
+                       <th>نسبة السهم </th>
+                    </tr>
+                </thead>
+                <tbody id="Details">
+
+
+                    <!-- Add more rows as needed -->
+
+                </tbody>
+            </table>
+            <h4 id="Net" style="direction:rtl">
+                
+                
+            </h4>
+        </div>
+    </div>
+
+
+
+    <script>
+
+    $(function () {
+        $.ajax({
+            url: '/Shareholder/GetAllForShow',
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                let NetBound = 0;
+                for (let i = 0; i < data.member.length; i++) {
+                    let html = `
+                        <tr>
+                            <td>${data.member[i].statement}</td>
+                            <td>${data.member[i].number_Shares}</td>
+                            <td>${data.member[i].value_Bound}</td>
+                            <td>${data.member[i].percentage}</td>
+                        </tr>
+                    `;
+                 
+                    NetBound += data.member[i].value_Bound
+                    $("#Details").append(html);
+                }
+                $("#Net").html(`<h4> الاجمالى ${NetBound}</h4>`);
+            },
+            error: function () {
+                console.log('Error loading data.');
+            }
+        });
+    });
+
+
+    </script>
+
+
+

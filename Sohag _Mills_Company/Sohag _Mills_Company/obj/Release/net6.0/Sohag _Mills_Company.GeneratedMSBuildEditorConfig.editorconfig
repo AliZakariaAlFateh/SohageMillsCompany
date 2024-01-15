@@ -1,0 +1,325 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sohag__Mills_Company
+build_property.RootNamespace = Sohag__Mills_Company
+build_property.ProjectDir = E:\Freelance\Sohag Miles\Code\Sohag_Mills-_Company\Sohag _Mills_Company\Sohag _Mills_Company\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Freelance\Sohag Miles\Code\Sohag_Mills-_Company\Sohag _Mills_Company\Sohag _Mills_Company
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/AboutCompany/CreateAbout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRDb21wYW55XENyZWF0ZUFib3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/AboutCompany/IndexAdminAbout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRDb21wYW55XEluZGV4QWRtaW5BYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/AboutCompany/partialView/_AboutTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRDb21wYW55XHBhcnRpYWxWaWV3XF9BYm91dFRhYmxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Clients/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Clients/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Clients/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Clients/_Clients.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xfQ2xpZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/CompanyTeam/CreateTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVRlYW1cQ3JlYXRlVGVhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/CompanyTeam/IndexAdminTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVRlYW1cSW5kZXhBZG1pblRlYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/CompanyTeam/IndexTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVRlYW1cSW5kZXhUZWFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/CompanyTeam/partialView/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVRlYW1ccGFydGlhbFZpZXdcX1RlYW1zVGFibGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/DashBord/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaEJvcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/FuturePlan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnV0dXJlUGxhblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/FuturePlan/IndexPlan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnV0dXJlUGxhblxJbmRleFBsYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/FuturePlan/IndexPlanTableIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnV0dXJlUGxhblxJbmRleFBsYW5UYWJsZUluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/FuturePlan/Partial/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnV0dXJlUGxhblxQYXJ0aWFsXF9UZWFtc1RhYmxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Home/Indicators_Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRpY2F0b3JzX0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/ImageCarousel/CreateImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VDYXJvdXNlbFxDcmVhdGVJbWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/ImageCarousel/IndexImages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VDYXJvdXNlbFxJbmRleEltYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/ImageCarousel/partialView/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1hZ2VDYXJvdXNlbFxwYXJ0aWFsVmlld1xfVGVhbXNUYWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators/_Indicators.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc1xfSW5kaWNhdG9ycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators_Details/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc19EZXRhaWxzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators_Details/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc19EZXRhaWxzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators_Details/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc19EZXRhaWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Indicators_Details/_Indicators_Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kaWNhdG9yc19EZXRhaWxzXF9JbmRpY2F0b3JzX0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Iso_Certification/CreateCertification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNvX0NlcnRpZmljYXRpb25cQ3JlYXRlQ2VydGlmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Iso_Certification/IndexCertification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNvX0NlcnRpZmljYXRpb25cSW5kZXhDZXJ0aWZpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Iso_Certification/partialView/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNvX0NlcnRpZmljYXRpb25ccGFydGlhbFZpZXdcX1RlYW1zVGFibGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/CreateArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXENyZWF0ZUFyZWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Createphone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXENyZWF0ZXBob25lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/GetAll_Sectors_With_Region_phones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXEdldEFsbF9TZWN0b3JzX1dpdGhfUmVnaW9uX3Bob25lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/IndexArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXEluZGV4QXJlYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/IndexPhones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXEluZGV4UGhvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/IndexSectors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXEluZGV4U2VjdG9ycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Partial/_areasector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXFBhcnRpYWxcX2FyZWFzZWN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Partial/_AreaTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXFBhcnRpYWxcX0FyZWFUYWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Partial/_phonesTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXFBhcnRpYWxcX3Bob25lc1RhYmxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Sector/Partial/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdG9yXFBhcnRpYWxcX1RlYW1zVGFibGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX0Fib3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Carousel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX0Nhcm91c2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Certificates.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX0NlcnRpZmljYXRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Features.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX0ZlYXR1cmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Mills.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX01pbGxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Quote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX1F1b3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX1NlcnZpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Components_of_Index/_Testimonial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNfb2ZfSW5kZXhcX1Rlc3RpbW9uaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_Dashbord_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EYXNoYm9yZF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_IndexPlan_DetailsTableIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleFBsYW5fRGV0YWlsc1RhYmxlSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_IndexShareHoldersTableIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9JbmRleFNoYXJlSG9sZGVyc1RhYmxlSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_Navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_Navbar_Dashbord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJfRGFzaGJvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_PopUpCreateFutureDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qb3BVcENyZWF0ZUZ1dHVyZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shareholder/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVob2xkZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shareholder/IndexSharHolders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVob2xkZXJcSW5kZXhTaGFySG9sZGVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shareholder/Partial/_TeamsTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVob2xkZXJcUGFydGlhbFxfVGVhbXNUYWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Statement/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGVtZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Statement/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGVtZW50XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Statement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGVtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Statement/_Statement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGVtZW50XF9TdGF0ZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/UploadFile/CreateFile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBsb2FkRmlsZVxDcmVhdGVGaWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/UploadFile/IndexFiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBsb2FkRmlsZVxJbmRleEZpbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/UploadFile/IndexFilesAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBsb2FkRmlsZVxJbmRleEZpbGVzQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/UploadFile/partialView/_FilesTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBsb2FkRmlsZVxwYXJ0aWFsVmlld1xfRmlsZXNUYWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8df3fglgat
+
+[E:/Freelance/Sohag Miles/Code/Sohag_Mills-_Company/Sohag _Mills_Company/Sohag _Mills_Company/Views/Shared/_MyLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NeUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0yx3jpjose

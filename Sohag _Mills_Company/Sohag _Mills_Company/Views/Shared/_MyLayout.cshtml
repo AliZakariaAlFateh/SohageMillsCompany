@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+@*     <link rel="shortcut icon" href="~/images/logo.jpeg"> *@
+    <link rel="shortcut icon" href="~/images/logomills.png">
+    @* <img src="~/images/logomills.png" /> *@
+@*     <img src="~/images/logomills.png" /> *@
+    <!--<link rel="shortcut icon" href="~/images/logo.jpeg">-->
+    <meta name="description" content="website for Mills company of sohage" />
+    <meta name="keywords" content="Website with mvc DOt Net aand jquery javascript html bootstrap css" />
+    <meta name="author" content="Eagle Team" />
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <meta property="og:site_name" content="Traveazy">
+    <meta property="og:locale" content="ar-eg">
+@*     <meta property="og:url" content="https://www.umrahme.com/home/ar-eg"> *@
+    <meta property="og:title" content="  | مطاحن سوهاج">
+    <meta property="og:description" content="هل تبحث عن أفضل المطاحن فى مصر.">
+    <meta property="og:type" content="Umrah Packages">
+    <meta name="twitter:card" content="Umrah Packages">
+    <meta name="twitter:title" content=" مطاحن سوهاج مصر العليا  ">
+    <meta name="twitter:description" content="هل تبحث عن أفضل مطاحن ,مطاحن سوهاج من أفضل المطاحن فى مصر">
+    <meta name="description" content="هل تبحث عن أفضل عروض ر حصرية.">
+@*     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1"> *@
+    @* <link rel="icon" type="image/x-icon" href="~/img/suhage12.jpg"> *@
+    @* <link rel="shortcut icon" href="~/Images/Logo.jpeg"> *@
+
+
+
+
+    <!-- Favicon -->
+    
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/asset/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/asset/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/asset/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/asset/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/asset/css/style.css" rel="stylesheet">
+    <title>مطاحن مصر العليا بسوهاج</title>
+    @* <link rel="shortcut icon" href="~/images/~/img/suhage12.jpg"> *@
+    <style>
+
+        .table-reversed td,
+        .table-reversed th {
+            flex: 1;
+            text-align: center;
+        }
+
+        .table-reversed tr {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+        }
+
+        .table-reversed tr {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+
+        .reverseForA {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+        }
+
+        .reverseForB {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+
+        .mvb {
+            min-height: 200px
+        }
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <partial name="~/Views/Shared/_Navbar.cshtml" />
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+
+
+
+            @RenderBody()
+
+
+
+
+        </main>
+    </div>
+
+    <partial name="_Footer" />
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Add this script tag to include Owl Carousel via CDN -->
+    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> *@
+    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> *@
+    @* <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> *@
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> *@
+
+
+
+
+
+
+
+    <script src="~/asset/lib/wow/wow.min.js"></script>
+    <script src="~/asset/lib/easing/easing.min.js"></script>
+    <script src="~/asset/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/asset/lib/counterup/counterup.min.js"></script>
+     <script src="~/asset/lib/owlcarousel/owl.carousel.min.js"></script> 
+    <script src="~/asset/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/asset/lib/lightbox/js/lightbox.min.js"></script>
+
+
+
+
+
+    <!-- Template Javascript -->
+    <script src="~/asset/js/main.js"></script>
+    <script src="~/js/companyteam/indexmain.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

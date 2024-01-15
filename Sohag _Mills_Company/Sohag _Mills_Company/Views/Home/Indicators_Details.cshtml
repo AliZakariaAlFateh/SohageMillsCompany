@@ -1,0 +1,133 @@
+﻿@using Sohag__Mills_Company.Services
+@model IEnumerable<Statement>
+@{
+    ViewData["Title"] = (DateTime.Now.Year - 1) + " / " + DateTime.Now.Year + " / " + (DateTime.Now.Year + 1) + " المؤشـرات الماليـة والاقتصـاديـة للشركـة عن العام المالى";
+    var ListOfIndicatorId = ViewBag.IndicatorId;
+    var statments = ViewBag.statment;
+
+    bool ISFOUND = false;
+
+}
+
+@* <partial name="Components_of_Index/_Carousel" /> *@
+<h1 style="direction:rtl" >
+    @ViewData["Title"]
+</h1>
+<div style="direction:rtl">
+    @for (int i = 0; i < ListOfIndicatorId.Count; i++)
+    {
+
+        <div>
+            @foreach (var item in Model)
+            {
+                if (item.Indicators.Id == ListOfIndicatorId[i])
+                {
+                    <p class="h2">
+                        @item.Indicators.Type_Indicator
+                    </p>
+                    break;
+                }
+            }
+
+        </div>
+        <table class="table table-success table-striped">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Statement_Name)
+                </th>
+                <th scope="col">
+                    @(DateTime.Now.Year - 1)
+                </th>
+                <th scope="col">
+                    @(DateTime.Now.Year)
+                </th>
+                <th scope="col">
+                    @(DateTime.Now.Year + 1)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                @if (item.Indicators.Id == ListOfIndicatorId[i] && item.indicators_Details.Count()>0)
+                {
+                     <tr>
+                        <td>
+                            @item.Statement_Name
+                        </td>
+                        <td>
+                            @{
+                                ISFOUND = false;
+                            }
+                            @foreach (Indicators_Details subitem in item.indicators_Details)
+                            {
+                                @if (subitem.Year_Statement.Value.Year == (DateTime.Now.Year - 1) && item.Id == subitem.StatementId)
+                                {
+                                    ISFOUND = true;
+                                    <span>@subitem.Quentity_Year</span>
+                                }
+                            }
+                            @if (!ISFOUND)
+                            {
+                            <span>########</span>
+                            }
+                        </td>
+                        <td>
+                            @{
+                                ISFOUND = false;
+                            }
+                            @foreach (Indicators_Details subitem in item.indicators_Details)
+                            {
+                                @if (subitem.Year_Statement.Value.Year == (DateTime.Now.Year) && item.Id == subitem.StatementId)
+                                {
+                                    ISFOUND = true;
+                                    <span>@subitem.Quentity_Year</span>
+                                }
+                            }
+                            @if (!ISFOUND)
+                            {
+                                <span>########</span>
+                            }
+                        </td>
+                        <td>
+                            @{
+                                ISFOUND = false;
+                            }
+                            @foreach (Indicators_Details subitem in item.indicators_Details)
+                            {
+                                @if (subitem.Year_Statement.Value.Year == (DateTime.Now.Year +1) && item.Id == subitem.StatementId)
+                                {
+                                    ISFOUND = true;
+                                    <span>@subitem.Quentity_Year</span>
+                                }
+                            }
+                            @if (!ISFOUND)
+                            {
+                                <span>########</span>
+                            }
+                        </td>
+                        
+                    </tr>
+                }
+                
+            }
+            
+        </table>
+    }
+</div>
+
+
+@* <div>
+    <p class="h2">
+
+    </p>
+</div>
+<table class="table table-success table-striped">
+   
+</table>
+
+<div>
+    <p class="h2">
+
+    </p>
+</div>
+<table class="table table-success table-striped">
+</table> *@

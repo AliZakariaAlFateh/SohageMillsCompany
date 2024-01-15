@@ -1,0 +1,106 @@
+
+.owl-carousel-item img {
+    max-height: 600px;
+    
+    min-height: 150px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.owl-carousel-item {
+    max-height: 600px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.Carousel_Section{
+    /* height:auto; */
+    height:600px;
+    min-height: 600px;
+}
+
+    .Carousel_Section .owl-carousel-item img {
+        width: 100%;
+        height: 600px;
+        min-height: 600px;
+    }
+
+
+/*.header-carousel .owl-dots .owl-dot img {
+    width: 100%;
+    height: 100%;
+}
+*/
+
+
+
+/*.header-carousel .owl-dots .owl-dot {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+
+.header-carousel .owl-dots .owl-dot.active {
+    width: 35px !important;
+    height: 35px !important;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add this to your existing CSS file or create a new one */
+
+/* Small devices (landscape phones, 576px and up) */
+/*@media (max-width: 576px) {
+    .owl-carousel-item {
+        max-height: 200px;
+    }
+    .owl-carousel-item img {
+        max-height: 200px;*/
+        /* Add styles for small screens */
+    /*}
+}*/
+
+/* Medium devices (tablets, 768px and up) */
+/*@media (min-width: 768px) {
+    .owl-carousel-item img {*/
+       
+        /* Add styles for medium screens */
+    /*}
+}*/
+
+/* Large devices (desktops, 992px and up) */
+/*@media (min-width: 992px) {
+    .owl-carousel-item img {*/
+        /* Add styles for large screens */
+    /*}
+}*/
+
+/* Extra large devices (large desktops, 1200px and up) */
+/*@media (min-width: 1200px) {
+    .owl-carousel-item img {*/
+        /* Add styles for extra-large screens */
+    /*}
+}*/
+
+
+

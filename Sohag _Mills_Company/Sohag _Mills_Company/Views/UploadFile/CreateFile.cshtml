@@ -1,0 +1,125 @@
+﻿@model FilePdf
+
+@{
+    // ViewData["Title"] = "CreateTeam";
+    Layout = "~/Views/Shared/_Dashbord_Layout.cshtml";
+}
+<div class="model modal-dialog modal-xl position-static d-block bg-body-secondary p-4 " tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow" style="direction:rtl;">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1>@ViewBag.title</h1>
+                <a class="btn-close" title="الرجوع  " asp-action="IndexFiles" asp-controller="UploadFile"></a>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form asp-action="CreateFile" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    @if (Model != null)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Id" class="form-control" />
+                    }
+                    <div class="row mb-4">
+                        <div class="col">
+
+
+                            <div class="form-outline">
+                                <label asp-for="FileDescription" class="control-label"></label>
+                                <input type="text" id="FileDescription" asp-for="FileDescription" hidden />
+                                <select asp-for="type_pdf" class="form-control mt-2 w-100">
+                                    <option value=""> أختر الملف</option>
+                                    <option value="0">الموازنة التقدريرية</option>
+                                    <option value="1">حوكمة الشركة</option>
+                                    <option value="2">هيكل المساهمين</option>
+                                    <option value="3">الفرص الأستثمارية</option>
+                                    <option value="4"> المؤشرات المالية والإقتصادية </option>
+                                    <option value="5"> المؤشرات الإنتاجية </option>
+                                    <option value="6">عملاء الشركة </option>
+                                </select>
+                                <span asp-validation-for="FileDescription" class="text-danger"></span>
+                            </div>
+                      @*       <div class="form-outline">
+                                 <label for="input-datalist">Timezone</label> 
+                                <label asp-for="FileDescription" class="control-label"></label>
+                                <input type="text" asp-for="FileDescription" class="form-control" autocomplete="on" placeholder="اكتب  او إختر إسم الملف" list="list-timezone" id="input-datalist">
+                                <datalist id="list-timezone">
+                                </datalist>
+
+                                 <input asp-for="FileDescription" class="form-control" /> 
+                                <span asp-validation-for="FileDescription" class="text-danger"></span>
+                            </div> *@
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="control-label"> أضافة صورة عضو</label>
+                                <input type="file" asp-for="ImageIFormFile" class="form-control" accept="image/jpeg, image/png" />
+                                <input type="hidden" asp-for="ImageName" class="form-control" />
+                                <span asp-validation-for="ImageIFormFile" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="control-label">أضافة الملف</label>
+                                <input type="file" asp-for="PdfIFormFile" class="form-control" accept=".pdf" />
+                                <span asp-validation-for="PdfIFormFile" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="direction: ltr;">
+                        <input type="submit" value="حفظ" class="btn btn-primary" />
+                        <a class="btn btn-outline-secondary" asp-action="IndexFiles" asp-controller="UploadFile"> الرجوع  </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+ *@
+
+@section Scripts {
+    <script src="~/js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#type_pdf").change(function () {
+                // Get the selected text
+                var selectedText = $("#type_pdf option:selected").text();
+                $("#FileDescription").val(selectedText);
+
+                // Use selectedText as needed
+                console.log("Selected Text: " + selectedText);
+            });
+        });
+    </script>
+}
+
+    <script>
+
+        getAllData('/UploadFile/GetAllFilesdropdown', (error, data) => {
+            debugger;
+            if (error) {
+                console.error('Error:', error);
+            } else {
+                console.log('Data:', data);
+
+                // Assuming data is an array of options
+                for (let i = 0; i < data.res.length; i++) {
+                    console.log(data.res[i]);
+                    $('#list-timezone').append(`<option value="${data.res[i]}"></option>`);
+                }
+                $('#input-datalist').trigger('input');
+
+            }
+        });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
